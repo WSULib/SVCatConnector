@@ -1,0 +1,162 @@
+body {
+	font-family:'Helvetica', 'Arial', sans-serif;
+	background: url('images/lightpaperfibers.png') #fff;
+	// min-width:845px;
+	width:1150px;
+	font-size: 1.1em;
+  color: #333333;
+  border: none;
+  line-height:normal;
+  margin:0px auto;
+}
+
+p {
+	margin: 25px 5px 5px 5px;
+	font-size: .8em;
+}
+
+.explanation {
+	float:left;
+	width:48%;
+	margin:15px 15px 15px 25px;
+}
+
+h1 {
+	color: #000;
+  font: 400 47px/44px Abril Fatface;
+  text-align: center;
+  margin: 30px 0 0 0;
+  padding: 0;
+}
+
+h2 {
+	color: #666;
+  font: 300 18px/24px "open sans";
+  margin: 0 90px 36px 0;
+  padding: 0;
+  text-align: right;
+}
+
+a {
+    color: #09F;
+    text-decoration: none;
+}
+
+pre {
+	background-color: #fff;
+}
+
+#nav {
+	padding:0 150px 0 0;
+	margin:0;
+	list-style-type:none;
+	float:right;
+}
+
+#nav li {
+	display:block;
+	float:left;
+	padding:0 27px 0 0;
+}
+
+#nav li a {
+  display:block;
+  padding:25px 0 0 0;
+}
+
+.footer {
+  clear:both;
+  font-size:.7em;
+  float:right;
+  padding:25px 30px 25px 0;
+}
+
+form {
+  position:relative;
+  z-index: 20;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5em;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+.clearfix { *zoom: 1; }
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; 
+}
+.clearfix:after { clear: both; }
+
+// NO RESULTS
+
+.nores {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
+
+/* ------- MORE INFO ------- */
+
+.tooltip {
+  display:none;
+  position:absolute;
+  border:1px solid #333;
+  background-color:#fff;
+  border-radius:5px;
+  padding:10px;
+  color:#000;
+  z-index: 2000;
+}
+
+.current-item {
+  width: 500px;
+  font-size: 0.875em;
+  position:relative;
+  top: -15px;
+  left: 100px;
+  z-index: 1000;
+}
+
+.title {
+  font-weight: bold;
+}
+
+
+/* --------- FOOTER --------- */
+
+footer {
+  position: relative;
+  top: 645px;
+  text-align: center;
+  font-size: 0.6em;
+  color: #aaa;
+  padding-bottom: 40px;
+}
+footer a {
+  color: #aaa;
+}
