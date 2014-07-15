@@ -31,9 +31,7 @@ $eventInfo = array();
 $eventInfo['stackviewRecords'] = array();
 $eventInfo['callNums'] = array();
 
-$eventInfo['Z3950server'] = "elibrary.wayne.edu:210/innopac";
-// $eventInfo['Z3950server'] = "lsu.louislibraries.org:5205/unicorn";
-// $eventInfo['Z3950server'] = "z3950.lib.umich.edu:210/miu01_pub";
+$eventInfo['Z3950server'] = "";
 $eventInfo['syntax'] = "opac"; 
 $eventInfo['attribute'] = 16;
 $hidden['element'] = "";
@@ -47,6 +45,6 @@ $eventInfo['range'] = array(
         "stepSize" => 0
     );
 
-$eventInfo['recordLink'] = "http://elibrary.wayne.edu/search/?searchtype=c&searcharg=$query";
+$eventInfo['recordLink'] = "";
 
 ?>
