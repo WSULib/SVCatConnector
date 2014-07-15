@@ -14,7 +14,7 @@
 
 <!-- stackview.js and all js dependencies -->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="lib/jquery.stackview.min.js"></script>
+<script type="text/javascript" src="../lib/jquery.stackview.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
 <script type="text/javascript">
