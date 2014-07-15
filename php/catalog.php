@@ -12,7 +12,7 @@
 require_once('functions.php');
 require_once('settings.php');
 // ****USE THESE************
-// Uncomment the below (change $query to whatever LC call number you wish) then uncomment the other non-query variables.
+// Uncomment the below (change $query to whatever you've configured) then uncomment the other non-query variables.
 // $query = 'M39';
 // $callback = '';
 // $count = '';
@@ -44,6 +44,7 @@ function Z3950($eventInfo, $query) {
 			if (is_array($eventInfo['callNums']) === false && substr($eventInfo['callNums'], 0, 5) === "Error") { $eventInfo['error_response'] = $eventInfo['callNums']; return $eventInfo;}
 
 			$eventInfo['fullRecords'] = array();
+			$eventInfo['recordLinks'] = array();
 			foreach($eventInfo['callNums'] as $query){
 				// fixes whitespace
 				if (strpos($query, ' ') !== false)
@@ -56,12 +57,14 @@ function Z3950($eventInfo, $query) {
 
 				if(!empty($eventInfo['Z3950Results']['stackviewRecords'])) { array_push($eventInfo['stackviewRecords'], $eventInfo['Z3950Results']['stackviewRecords']); }
 				if(!empty($eventInfo['Z3950Results']['fullRecords'])) { array_push($eventInfo['fullRecords'], $eventInfo['Z3950Results']['fullRecords']); }
+				if(!empty($eventInfo['Z3950Results']['recordLinks'])) { array_push($eventInfo['recordLinks'], $eventInfo['Z3950Results']['recordLinks']); }
 			}
 		}
 		else {
 				$eventInfo['error_response'] = "Error: enter valid search query";
 		}
 				unset($eventInfo['Z3950Results']);
+				$eventInfo['recordLinks'] = array_reverse($eventInfo['recordLinks']);
 				return $eventInfo;
 }
 

@@ -169,7 +169,7 @@ function svRecordCreator($MARC, $query, $eventInfo) {
                     $MARC['stackviewRecords']["measurement_height_numeric"] = intval($height_cm);
                     break;
                 default:
-                    $MARC['stackviewRecords'] = $MARC['stackviewRecords'];
+                    continue;
                     break;
             }
             if (isset($MARC['stackviewRecords']['title']) === FALSE ) {
@@ -181,13 +181,14 @@ function svRecordCreator($MARC, $query, $eventInfo) {
                         $MARC['stackviewRecords']['title'] = svSub1($record);
                         break;
                     default:
-                        $MARC['stackviewRecords'] = $MARC['stackviewRecords'];
+                        continue;
                         break;
                 }
             }
         } //ends foreach
     } //ends isset
     $MARC['fullRecords']['link'] = $eventInfo['recordLink'];
+    $MARC['recordLinks'] = $eventInfo['recordLink'];
 
    $stackviewNames = array ("title", "creator", "measurement_height_numeric", "measurement_page_numeric", "pub_date"); 
    foreach ($stackviewNames as $k => $v){
@@ -197,7 +198,6 @@ function svRecordCreator($MARC, $query, $eventInfo) {
     //Adding in shelfrank manually until each record shows usage stats
     $MARC['stackviewRecords']["shelfrank"] = 40;
     $MARC['stackviewRecords']['link'] = "#";
-    $MARC['test'] = $MARC['stackviewRecords']['title'];
     return $MARC;
 
   }

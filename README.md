@@ -5,9 +5,9 @@ Z3950 Connector and Modified Display built for use in Harvard's Stack View proje
 
 ## Requirements
 
-libyaz4
-yaz
-php5-yaz
+libyaz4  
+yaz  
+php5-yaz  
 * I recommend installing from source rather than your server's repositories, as, at least with Ubuntu, these packages seem to be out-of-date otherwise
 Server environment (WAMP, LAMP)
 * Has been tested on an Ubuntu 10.04 LAMP server pointing to a III (Millennium) Z3950 Server (using scan and search services)

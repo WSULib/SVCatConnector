@@ -9,7 +9,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
 <!-- stackview.css to style the stack -->
-<link rel="stylesheet" href="lib/jquery.stackview.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery.stackview.css" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300' rel='stylesheet' type='text/css'>
 
 <!-- stackview.js and all js dependencies -->
@@ -28,13 +28,8 @@ $(document).ajaxComplete(function()
             $(this).removeClass("heat5").addClass("highlight-book");
             var currentTitle = $(this).find('.spine-title').text();
             $('.current-item .title').empty().append(currentTitle);
-            var num = obj.stackviewRecords.length - parseInt($(this).css('zIndex')) - 1;
-            var recordLink = "<a href="+obj.fullRecords[num].link+" target='_blank'>View Catalog Record</a>";
-            console.log("This is the number of the book that just loaded");
-            console.log(parseInt($(this).css('zIndex')));
-            console.log("Maybe this is the number of the link");
-            console.log(num);
-            console.log(obj.fullRecords[num].link);
+            var num = parseInt($(this).css('zIndex'));
+            var recordLink = "<a href="+obj.recordLinks[num]+" target='_blank'>View Catalog Record</a>";
             $('.current-item .record').empty().append(recordLink);
           }
       });
@@ -44,14 +39,8 @@ $(document).ajaxComplete(function()
             $('li.stack-item').not($(this)).removeClass('highlight-book').addClass('heat5');
             $(this).removeClass('heat5').addClass('highlight-book');
             $('.current-item .title').empty(currentTitle).append(currentTitle);
-            // if (firstORlast == 'first') { var num = obj.stackviewRecords.length; } else { var num = obj.stackviewRecords.length - 1; }
-            var num = obj.stackviewRecords.length - parseInt($(this).css('zIndex')) - 1;
-            console.log("This is the number of the book you clicked on");
-            console.log(parseInt($(this).css('zIndex')));
-            console.log("This is the number of the link");
-            console.log(num);
-            console.log(obj.fullRecords[num].link);
-            $('.current-item .record').empty().append("<a href="+obj.fullRecords[num].link+" target='_blank'>View Catalog Record</a>");
+            var num = parseInt($(this).css('zIndex'));
+            $('.current-item .record').empty().append("<a href="+obj.recordLinks[num]+" target='_blank'>View Catalog Record</a>");
     });
 
 
@@ -60,26 +49,25 @@ $(document).ajaxComplete(function()
     $('.stack-item:last .prev').remove();
 
     $('li.stack-item').last().click(function(){
-          firstORlast = 'last';
-          var num = obj.stackviewRecords.length - parseInt($(this).css('zIndex')) - 1;
+          
+          var num = parseInt($(this).css('zIndex'));
           var query = obj.callNums[num];
           var currentTitle = $(this).find('.spine-title').text();
           $('.current-item .title').empty(currentTitle);
-          var recordLink = "<a href="+obj.fullRecords[num].link+" target='_blank'>View Catalog Record</a>";
+          var recordLink = "<a href="+obj.recordLinks[num]+" target='_blank'>View Catalog Record</a>";
           $('.current-item .record').empty().append(recordLink);
-          nextRecords(query, "last");
+          nextRecords(query, this);
           $('.highlight-book').removeClass().addClass('stack-item stack-book heat5');
         });
 
     $('li.stack-item').first().click(function(){
-          firstORlast = 'first';
-          var num = obj.stackviewRecords.length - parseInt($(this).css('zIndex')) - 1;
+          var num = parseInt($(this).css('zIndex'));
           var query = obj.callNums[num];
           var currentTitle = $(this).find('.spine-title').text();
           $('.current-item .title').empty(currentTitle);
-          var recordLink = "<a href="+obj.fullRecords[num].link+" target='_blank'>View Catalog Record</a>";
+          var recordLink = "<a href="+obj.recordLinks[num]+" target='_blank'>View Catalog Record</a>";
           $('.current-item .record').empty().append(recordLink);
-          nextRecords(query, "first");
+          nextRecords(query);
           $('.highlight-book').removeClass().addClass('stack-item stack-book heat5');
         });
 
@@ -100,7 +88,6 @@ $(document).ajaxComplete(function()
                 $(".tooldeets").css("color", "#B08328");
               }
 
-            var num = 29 - parseInt($(this).css('zIndex'));
               $(this).data('tipText', title).removeAttr('title');
               $('<p class="tooltip"></p>').html(title).appendTo('body').fadeIn();
       }, function() {

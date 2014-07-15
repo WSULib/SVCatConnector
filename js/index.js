@@ -44,12 +44,12 @@ function populateStackview(query) {
 
 // Now display data for the initially selected book (Note: functions below it also run when triggered through onclick events found on index.php)
 function displayFirstBook(obj){
-	$('span.record').empty().append("<a href="+obj.fullRecords[14].link+" target='_blank'>View Catalog Record</a>");
+	$('span.record').empty().append("<a href="+obj.recordLinks[14].link+" target='_blank'>View Catalog Record</a>");
 }
 
 // Search for Next 30 records
 
-function nextRecords(query, call) {
+function nextRecords(query) {
 	obj = null;
 	console.log(query);
 	$.ajax({
@@ -72,28 +72,14 @@ function nextRecords(query, call) {
 
 	else {
 		$(function () {
-
-		if (call == "first") {
-			var num = obj.stackviewRecords.length - 1;
-			for (var i = 1; i<=obj.stackviewRecords.length; i++) {
-				stack.remove(1);
-			}
-			for (var i = 0; i<obj.stackviewRecords.length; i++) {
-				stack.add(0,obj.stackviewRecords[num - i]);
-			}
-		}
-		else {
 			var num = parseInt($('div.num-found span').html());
 			for (var i = 1; i <=obj.stackviewRecords.length; i++) {
 				stack.remove(1);
 			}
 			for (var i = 0; i<obj.stackviewRecords.length; i++) {
 				stack.add(obj.stackviewRecords[i]);
-// Maybe change to this: 				stack.add(0, obj.stackviewRecords[i]);
 			}
-		}
 		stack.remove(0);
-		// displayFirstBook(obj);
 		});
 	}
 	}
