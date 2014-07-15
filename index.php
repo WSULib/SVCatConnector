@@ -9,12 +9,12 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
 <!-- stackview.css to style the stack -->
-<link rel="stylesheet" href="css/jquery.stackview.css" type="text/css" />
+<link rel="stylesheet" href="lib/jquery.stackview.css" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300' rel='stylesheet' type='text/css'>
 
 <!-- stackview.js and all js dependencies -->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="../lib/jquery.stackview.min.js"></script>
+<script type="text/javascript" src="lib/jquery.stackview.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
 <script type="text/javascript">
