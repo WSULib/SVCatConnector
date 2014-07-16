@@ -1,7 +1,6 @@
 // global variables
 var obj = '';
 var stack = '';
-var firstORlast = '';
 
 // First get stackview records
 function populateStackview(query) {
@@ -26,7 +25,7 @@ function populateStackview(query) {
 		else {
 					var json_loc = "json/temp/"+obj.tempfile;
 					stack = new StackView('.stack', {url: json_loc});
-					displayFirstBook(obj);
+					// displayFirstBook(obj);
 		}
 	}
 	else {
@@ -42,7 +41,7 @@ function populateStackview(query) {
 }
 
 
-// Now display data for the initially selected book (Note: functions below it also run when triggered through onclick events found on index.php)
+// Now display data for the initially selected book
 function displayFirstBook(obj){
 	$('span.record').empty().append("<a href="+obj.recordLinks[14].link+" target='_blank'>View Catalog Record</a>");
 }

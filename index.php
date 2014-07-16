@@ -49,14 +49,13 @@ $(document).ajaxComplete(function()
     $('.stack-item:last .prev').remove();
 
     $('li.stack-item').last().click(function(){
-          
           var num = parseInt($(this).css('zIndex'));
           var query = obj.callNums[num];
           var currentTitle = $(this).find('.spine-title').text();
           $('.current-item .title').empty(currentTitle);
           var recordLink = "<a href="+obj.recordLinks[num]+" target='_blank'>View Catalog Record</a>";
           $('.current-item .record').empty().append(recordLink);
-          nextRecords(query, this);
+          nextRecords(query);
           $('.highlight-book').removeClass().addClass('stack-item stack-book heat5');
         });
 
