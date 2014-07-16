@@ -21,7 +21,7 @@ The instructions below demonstrate how to insert WSULS' Z3950 connector and disp
 * Download [SVCatConnector](#)
 * Unpackage and place both in a web-accessible folder on your webserver
 * Place SVCatConnector inside Stack View's root directory
-* Modify ownership of the json/temp/ folder so that the webserver (perhaps called httpd or www-data if using Apache) has write permission
+* Modify ownership of the SVCatConnector/json/temp/ folder so that the webserver (perhaps called httpd or www-data if using Apache) has write permission
 * Modify SVCatConnector/php/settings.php to configure your Z3950 instance
 * In your browser, navigate to Stack View folder/SVCatConnector/index.php, and you should see your catalog stack. Note: you are navigating to SVCatConnector's index page as opposed to Stack View's built-in index page.
 * Errors in your configuration should appear on the index page.
