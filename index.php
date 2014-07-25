@@ -49,13 +49,14 @@ $(document).ajaxComplete(function()
     $('.stack-item:last .prev').remove();
 
     $('li.stack-item').last().click(function(){
+          
           var num = parseInt($(this).css('zIndex'));
           var query = obj.callNums[num];
           var currentTitle = $(this).find('.spine-title').text();
           $('.current-item .title').empty(currentTitle);
           var recordLink = "<a href="+obj.recordLinks[num]+" target='_blank'>View Catalog Record</a>";
           $('.current-item .record').empty().append(recordLink);
-          nextRecords(query);
+          nextRecords(query, this);
           $('.highlight-book').removeClass().addClass('stack-item stack-book heat5');
         });
 
@@ -74,21 +75,14 @@ $(document).ajaxComplete(function()
             // Tooltip
       $('li.stack-item').hover(function(){
               // Hover over code
+              var num = parseInt($(this).css('zIndex'));
+              status(obj, num)
               var availability = $(".status").text();
               var location = $(".location").text();
               var title = $(this).attr('title');
 
-              if (availability == "Available") {
-                $(".tooldeets").css("border-left-color", "#069E87");
-                $(".tooldeets").css("color", "#069E87");
-              }
-              else {
-                $(".tooldeets").css("border-left-color", "#B08328");
-                $(".tooldeets").css("color", "#B08328");
-              }
-
               $(this).data('tipText', title).removeAttr('title');
-              $('<p class="tooltip"></p>').html(title).appendTo('body').fadeIn();
+              $('<p class="tooltip"></p>').html(title+"<br><span class='tooldeets'><span class='callnum'>"+obj.callNums[num]+"</span><br><span class='availability'>"+availability+"</span> @ <span class='locationtool'>"+location+"</span></span>").appendTo('body').fadeIn();
       }, function() {
               // Hover out code
               $(this).attr('title', $(this).data('tipText'));
@@ -112,6 +106,8 @@ $(document).ajaxComplete(function()
   <div class="current-item">
     <span class="title"></span><br>
     <span class="record"></span>
+    <span class="location" style="display:none;"></span>
+    <span class="status" style="display:none;"></span>
   </div>
   
   <div class="stack">

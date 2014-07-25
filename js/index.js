@@ -1,6 +1,7 @@
 // global variables
 var obj = '';
 var stack = '';
+var firstORlast = '';
 
 // First get stackview records
 function populateStackview(query) {
@@ -25,7 +26,6 @@ function populateStackview(query) {
 		else {
 					var json_loc = "json/temp/"+obj.tempfile;
 					stack = new StackView('.stack', {url: json_loc});
-					// displayFirstBook(obj);
 		}
 	}
 	else {
@@ -34,17 +34,11 @@ function populateStackview(query) {
 })
 
 .fail(function (response){
-
 	$('.stack').html("Your search did not find any records.  Please try again.");
 	});
 
 }
 
-
-// Now display data for the initially selected book
-function displayFirstBook(obj){
-	$('span.record').empty().append("<a href="+obj.recordLinks[14].link+" target='_blank'>View Catalog Record</a>");
-}
 
 // Search for Next 30 records
 
@@ -89,10 +83,32 @@ function nextRecords(query) {
 })
 
 .fail(function (response2){
-
 	$('.stack').html("Your search did not find any records.  Please try again.");
-	console.log(response2);
 	});
 }
 
+function status(obj, num){
+	// makes sure you have holdings data before it runs
+	if (typeof obj.fullRecords[num].holdings !== 'undefined') {
+		$('span.status').empty();
+		$('span.location').empty();
+		var holdings = obj.fullRecords[num].holdings.holding;
 
+		if (typeOf(holdings) == 'array') {
+			$('span.status').append(holdings[0].publicNote);
+			$('span.location').append("Location: "+holdings[0].localLocation);
+		}
+
+		if (typeOf(holdings) == 'object') {
+			$('span.status').append(holdings.publicNote);
+			$('span.location').append("Location: "+holdings.localLocation);
+		}
+	}
+
+}
+
+
+function typeOf(obj) {
+	// credit to https://stackoverflow.com/questions/16028680/how-do-i-determine-if-something-is-an-array-or-object?lq=1
+  return {}.toString.call(obj).match(/\w+/g)[1].toLowerCase();
+}
