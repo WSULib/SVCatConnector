@@ -15,13 +15,11 @@ php5-yaz
 
 ## Installation Instructions
 
-The instructions below demonstrate how to insert WSULS' Z3950 connector and display inside an installation of Harvard LIL's Stack View project.
+The instructions below demonstrate how use WSULS' Z3950 connector and display inside in conjunction with Harvard LIL's Stack View project.
 
-* Download Harvard Library Innovation Lab's [Stack View](https://github.com/harvard-lil/stackview)</a>
 * Download [SVCatConnector](#)
-* Unpackage and place both in a web-accessible folder on your webserver
-* Place SVCatConnector inside Stack View's root directory
+* Unpackage and place it in a web-accessible folder on your webserver
 * Modify ownership of the SVCatConnector/json/temp/ folder so that the webserver (perhaps called httpd or www-data if using Apache) has write permission
 * Modify SVCatConnector/php/settings.php to configure your Z3950 instance
-* In your browser, navigate to Stack View folder/SVCatConnector/index.php, and you should see your catalog stack. Note: you are navigating to SVCatConnector's index page as opposed to Stack View's built-in index page.
+* In your browser, navigate to Stack View folder/SVCatConnector/index.php, and you should see your catalog stack.
 * Errors in your configuration should appear on the index page.
