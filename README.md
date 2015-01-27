@@ -15,7 +15,7 @@ php5-yaz
 
 ## Installation Instructions
 
-The instructions below demonstrate how use WSULS' Z3950 connector and display inside in conjunction with Harvard LIL's Stack View project.
+The instructions below demonstrate how use WSULS' Z3950 connector and display in conjunction with Harvard LIL's Stack View project.
 
 * Download [SVCatConnector](#)
 * Unpackage and place it in a web-accessible folder on your webserver
