@@ -136,7 +136,7 @@ $(document).ajaxComplete(function()
   <script type="text/javascript">
 $(document).ready(function() {
   var search_type = "<?php if (isset($_GET['type'])) { $type = $_GET['type']; echo $type;} else { $type = 'lc'; echo $type;}?>";
-  var query = "<?php if (isset($_GET['q'])) { $q = $_GET['q']; echo $q;} else { $q = 'M49'; echo $q;}?>";
+  var query = "<?php if (isset($_GET['q'])) { $q = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_STRING); echo $q;} else { $q = 'M49'; echo $q;}?>";
   // Populate stackview
   populateStackview(query);
 
